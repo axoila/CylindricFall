@@ -54,7 +54,7 @@ GLFWwindow* init_glfw(){
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
     // Dark blue background
-    glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
     // Enable depth test
     glEnable(GL_DEPTH_TEST);
@@ -68,17 +68,17 @@ GLFWwindow* init_glfw(){
     return window;
 }
 
-mat4 make_mvp(){
+mat4 make_mvp(vec3 cam_pos, vec3 look_at){
     //MVP matrix
     // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-    glm::mat4 Projection = glm::perspective(glm::radians(90.0f), 4.0f/3.0f, 0.1f, 100.0f);
+    glm::mat4 Projection = glm::perspective(glm::radians(30.0f), 4.0f/3.0f, 0.1f, 50.0f);
     // Or, for an ortho camera :
     //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
 
     // Camera matrix
     glm::mat4 View = glm::lookAt(
-        glm::vec3(0,0,0), // Camera location
-        glm::vec3(0,0,1), // camera lok target
+        cam_pos, // Camera location
+        look_at, // camera lok target
         glm::vec3(0,1,0)  // camera up
     );
 

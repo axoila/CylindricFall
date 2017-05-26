@@ -59,12 +59,16 @@ int main( void )
 
     // For speed computation
     double lastTime = glfwGetTime();
+    double lastFrameTime = lastTime;
     int nbFrames = 0;
 
+    double progress = 0;
     do{
 
         // Measure speed
         double currentTime = glfwGetTime();
+        double delta = currentTime - lastFrameTime;
+        lastFrameTime = currentTime;
         nbFrames++;
         if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1sec ago
             // printf and reset
@@ -73,13 +77,15 @@ int main( void )
             lastTime += 1.0;
         }
 
+        progress += delta * 10;
+
         // Clear the screen
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Use our shader
         glUseProgram(programID);
 
-        glm::mat4 MVP = make_mvp();
+        glm::mat4 MVP = make_mvp(vec3(0, 0, progress),vec3(0, 0, progress+1));
 
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform

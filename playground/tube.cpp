@@ -22,19 +22,19 @@ tube::tube(){
 
             int vert_index = (z * circle_verts + a) * 3;
 
-            verts[vert_index] = sin(2 * a * PI / circle_verts);
-            verts[vert_index+1] = cos(2 * a * PI / circle_verts);
+            verts[vert_index] = sin(2.0 * a * PI / circle_verts);
+            verts[vert_index+1] = cos(2.0 * a * PI / circle_verts);
             verts[vert_index+2] = z;
 
             if(z < length-10){
                 int index_index = (z * circle_verts + a) * 3 * 2;
-                indices[index_index] = z * circle_verts + a;
-                indices[index_index+1] = (z+1) * circle_verts + (a+1)%length;
-                indices[index_index+2] = (z+1) * circle_verts + a;
+                indices[index_index+2] = z * circle_verts + ((a)%circle_verts);
+                indices[index_index+0] = (z+1) * circle_verts + ((a+1)%circle_verts);
+                indices[index_index+1] = (z+1) * circle_verts + ((a)%circle_verts);
 
-                indices[index_index+3] = z * circle_verts + a;
-                indices[index_index+4] = z * circle_verts + (a+1)%length;
-                indices[index_index+5] = (z+1) * circle_verts + (a+1)%length;
+                indices[index_index+4] = z * circle_verts + ((a)%circle_verts);
+                indices[index_index+5] = z * circle_verts + ((a+1)%circle_verts);
+                indices[index_index+3] = (z+1) * circle_verts + ((a+1)%circle_verts);
 
             }
         }
