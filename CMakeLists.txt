@@ -517,6 +517,12 @@ add_executable(playground
 	playground/playground.cpp
 	common/shader.cpp
 	common/shader.hpp
+        playground/fragment.glsl
+        playground/vertex.glsl
+        playground/init.cpp
+        playground/init.h
+        playground/tube.cpp
+        playground/tube.h
 )
 target_link_libraries(playground
 	${ALL_LIBS}
