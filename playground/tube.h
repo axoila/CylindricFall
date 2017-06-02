@@ -1,7 +1,7 @@
 #ifndef TUBE_H
 #define TUBE_H
 
-#define circle_verts 32
+#define circle_verts 33
 #define length 100
 
 class tube

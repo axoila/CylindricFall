@@ -137,5 +137,6 @@ void ship::tick(GLFWwindow* window, float delta){
         input.x -= 1;
 
     goal += input * delta;
+    if(glm::length(goal) > 1) goal /= length(goal);
     pos = glm::mix(pos, goal, delta);
 }

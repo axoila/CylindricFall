@@ -42,9 +42,9 @@ tube::tube(){
                 indices[index_index+0] = (z+1) * circle_verts + ((a+1)%circle_verts);
                 indices[index_index+1] = (z+1) * circle_verts + ((a)%circle_verts);
 
-                indices[index_index+4] = z * circle_verts + ((a)%circle_verts);
-                indices[index_index+5] = z * circle_verts + ((a+1)%circle_verts);
-                indices[index_index+3] = (z+1) * circle_verts + ((a+1)%circle_verts);
+                indices[index_index+3] = z * circle_verts + ((a)%circle_verts);
+                indices[index_index+4] = z * circle_verts + ((a+1)%circle_verts);
+                indices[index_index+5] = (z+1) * circle_verts + ((a+1)%circle_verts);
 
             }
         }
