@@ -1,6 +1,7 @@
 #ifndef SHIP_H
 #define SHIP_H
 
+#define radius 0.85
 
 class ship
 {
